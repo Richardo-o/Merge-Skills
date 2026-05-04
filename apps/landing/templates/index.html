@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}MergeSkills - Cursos Interativos{% endblock %}
+
+{% block content %}
+
+    <h1>MergeSkills</h1>
+    <p>Plataforma de cursos interativos</p>
+
+    <h2>Cursos Disponiveis</h2>
+
+    {% for curso in cursos %}
+        <div style="border: 1px solid #ccc; padding: 16px; margin: 8px 0;">
+            <h3>{{ curso.title }}</h3>
+            <p>{{ curso.description }}</p>
+            <small>{{ curso.total_lessons }} aulas</small>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
