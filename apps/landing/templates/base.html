@@ -38,10 +38,22 @@
     <!-- Lucide Icons — Biblioteca de icones minimalista -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
-<body>
-    <header>
-        <nav>
-        <a href="/"> MergeSkills</a>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+
+        <nav class="max-w-6xl max-auto px-6 h-16 flex items-center justify-between">
+
+            <a href="/" class="text-lg font-bold text-gray-900 tracking-tight flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600"></i> 
+                MergeSkills
+            </a>
+
+            <div class="hidden sm:flex items-center gap-6 text-sm text-gray-500">
+                <a href="/#recursos" class="hover:text-gray-900 transition-colors">Recursos</a>
+                <a href="/#cursos" class="hover:text-gray-900 transition-colors">Cursos</a>
+                <a href="/#tech" class="hover:text-gray-900 transition-colors">Stack</a>
+            </div>
         </nav>
     </header>
     
@@ -52,6 +64,7 @@
     <footer>
         <p>&copy; 2026 MergeSkills - Projeto LDW FATEC</p>
     </footer>
-    
+    <!-- Inicia os icones com Lucide Icons -->
+    <script>lucide.createIcons();</script>
 </body>
 </html>
