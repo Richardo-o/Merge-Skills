@@ -61,8 +61,16 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; 2026 MergeSkills - Projeto LDW FATEC</p>
+    <footer class="border-t border-gray-100 mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <p>&copy; 2026 MergeSkills - Projeto LDW FATEC</p>
+            <div class="flex gap-4">
+                <a href="/" class="hover:text-gray-600 transition-colors">Inicio</a>
+                <a href="/#cursos" class="hover:text-gray-600 transition-colors">Cursos</a>
+                <a href="https://github.com" target="_blank" class="hover:text-gray-600 transition-colors">Github</a>
+            </div>
+        </div>
+
     </footer>
     <!-- Inicia os icones com Lucide Icons -->
     <script>lucide.createIcons();</script>
