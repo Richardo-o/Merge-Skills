@@ -1,10 +1,9 @@
 name: Deploy Landing Page to GitHub Pages
 
-# Define quando essa Action vai rodar:
 on:
   release:
-    types: [published]  # Apenas quando uma Release for publicada
-  # Permite rodar manualmente pelo painel do GitHub:
+    types: [published]
+
   workflow_dispatch:
 
 permissions:
@@ -15,32 +14,39 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
-      
+
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          
-      - name: Instalar dependências
+
+      - name: Verificar estrutura de arquivos
         run: |
-          cd apps/landing
+          pwd
+          ls -la
+          ls -la apps
+          ls -la apps/landing
+
+      - name: Instalar dependências
+        working-directory: apps/landing
+        run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
-      - name: Gerar o HTML Estático (Frozen-Flask)
+
+      - name: Gerar HTML estático com Frozen-Flask
+        working-directory: apps/landing
         run: |
-          cd apps/landing
           python freeze.py
-          
-      - name: Upload dos arquivos para o Pages
+
+      - name: Upload dos arquivos para GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './apps/landing/build'
-          
+          path: ./apps/landing/build
+
       - name: Deploy no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
